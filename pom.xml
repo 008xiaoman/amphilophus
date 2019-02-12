@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- 父工程 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	
+	<groupId>pers.xuxm</groupId>
+	<artifactId>amphilophus</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<!-- 子模块 -->
+	<modules>
+		<module>amphilophus-common</module><!-- 公共代码 -->
+		<module>amphilophus-registry</module><!-- 服务注册与发现 -->
+	</modules>
+
+</project>

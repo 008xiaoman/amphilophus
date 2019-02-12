@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: amphilophus-registry-eureka
+Implementation-Version: 1.0.0
+Built-By: xuxiaoman
+Implementation-Vendor-Id: pers.xuxm.amphilophus.registry
+Build-Jdk: 1.8.0_111
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/amphilophus/amphilophus-registry/amphilophus-regist
+ ry-eureka
+Created-By: Maven Integration for Eclipse
+
