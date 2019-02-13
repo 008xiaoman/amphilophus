@@ -1,0 +1,17 @@
+server:
+  #HTTP端口
+  port: 8761
+      #网络连接超时，单位：毫秒。设置为 0 表示永不超时，这样设置有隐患的。通常可设置为 30000 毫秒。
+      #其中和最大连接数相关的参数为maxProcessors 和 acceptCount 。如果要加大并发连接数，应同时加大这两个参数。
+  connection-timeout: 5000
+  tomcat:
+    #URL统一编码
+    uri-encoding: UTF-8
+    #Tomcat初始化时创建的 socket线程数
+    min-spare-threads: 10
+            #当tomcat的线程数达到maxThreads后，新的请求就会排队等待，超过排队数的请求会被拒绝
+    accept-count: 200
+            #同时处理的连接数
+    max-connections: 20000
+            #同时处理的线程数
+    max-threads: 500
