@@ -2,7 +2,7 @@
 
 server:
   #HTTP端口
-  port: 8761
+  port: 8080
       #网络连接超时，单位：毫秒。设置为 0 表示永不超时，这样设置有隐患的。通常可设置为 30000 毫秒。
       #其中和最大连接数相关的参数为maxProcessors 和 acceptCount 。如果要加大并发连接数，应同时加大这两个参数。
   connection-timeout: 5000
@@ -18,11 +18,35 @@ server:
             #同时处理的线程数
     max-threads: 500
     
+spring:
+  application:
+    name: amphilophus-gateway-zuul
+
 eureka:
   instance:
     hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
   client:
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+
+zuul:
+  ignored-services: '*'
+  routes:
+    amphilophus-rbac: /rbac/**
+    amphilophus-config-server: /config/**
+
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000

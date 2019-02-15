@@ -2,7 +2,7 @@
 
 server:
   #HTTP端口
-  port: 8761
+  port: 9090
       #网络连接超时，单位：毫秒。设置为 0 表示永不超时，这样设置有隐患的。通常可设置为 30000 毫秒。
       #其中和最大连接数相关的参数为maxProcessors 和 acceptCount 。如果要加大并发连接数，应同时加大这两个参数。
   connection-timeout: 5000
@@ -18,11 +18,47 @@ server:
             #同时处理的线程数
     max-threads: 500
     
+spring:
+  application:
+    name: amphilophus-rbac
+  cloud:
+    config:
+      uri: http://localhost:8080/config
+      profile: dev
+      label: master
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 192.168.179.100
+    port: 5672
+    username: guest
+    password: guest
+
 eureka:
   instance:
+    appname: amphilophus-rbac
     hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.appname}:${spring.application.instance_id:${server.port}}
   client:
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - refresh
+        - bus-refresh
+        - health
+        - info
+  health:
+    show-details: always
+
+logging:
+  level:
+    org.springframework: debug
+    org.hibernate: debug
+    org.mybatis: debug

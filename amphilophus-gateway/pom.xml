@@ -10,11 +10,10 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>pers.xuxm.amphilophus.registry</groupId>
-    <artifactId>amphilophus-registry</artifactId>
+    <artifactId>amphilophus-gateway</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>amphilophus-registry-eureka</module><!-- 服务注册与发现（eureka） -->
+        <module>amphilophus-gateway-zuul</module>
     </modules>
 </project>
