@@ -36,6 +36,7 @@ zuul:
   routes:
     amphilophus-rbac: /rbac/**
     amphilophus-config-server: /config/**
+    amphilophus-monitor-zipkin-dashboard: /zipkin/**
 
 ribbon:
   ReadTimeout: 30000
@@ -50,3 +51,8 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 30000
+logging:
+  level:
+    org.springframework: debug
+    org.hibernate: debug
+    org.mybatis: debug

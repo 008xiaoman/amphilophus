@@ -23,6 +23,7 @@
         <module>amphilophus-gateway</module>
         <module>amphilophus-rbac</module>
         <module>amphilophus-config</module>
+        <module>amphilophus-monitor</module>
     </modules>
 
     <properties>

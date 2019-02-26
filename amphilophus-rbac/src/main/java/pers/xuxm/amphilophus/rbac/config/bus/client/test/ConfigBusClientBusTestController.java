@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ConfigBusClientBusTestController {
 
+    /** 日志 */
+    //private static final Logger LOG = LoggerFactory.getLogger(ConfigBusClientBusTestController.class);
+    
     /** 本地变量 */
     @Value("${local.variable}")
     private String localVariable;

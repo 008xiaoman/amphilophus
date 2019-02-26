@@ -6,11 +6,11 @@
     <!-- 父工程 -->
     <parent>
         <groupId>pers.xuxm</groupId>
-        <artifactId>amphilophus</artifactId>
+        <artifactId>amphilophus-monitor</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>amphilophus-rbac</artifactId>
+    <artifactId>amphilophus-monitor-zipkin-dashboard</artifactId>
 
     <dependencyManagement>
         <dependencies>
@@ -33,35 +33,22 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-        </dependency>
-        
-        <!-- sleuth配置 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-        <!-- 引入zipkin -->
+        <!-- spring-cloud-starter-zipkin -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
-        
-        <!-- hystrix -->
+        <!-- zipkin 界面 -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-ui</artifactId>
+            <version>2.11.7</version>
+        </dependency>
+        <!-- zipkin 服务类 -->
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-server</artifactId>
+            <version>2.11.7</version>
         </dependency>
     </dependencies>
 
